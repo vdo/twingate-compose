@@ -13,7 +13,7 @@ services:
       - /var/run/dbus/system_bus_socket:/run/dbus/system_bus_socket  
     cap_add:
       - NET_ADMIN
-    devices:
-      - /dev/net/tun:/dev/net/tun
+    # devices:
+      # - /dev/net/tun:/dev/net/tun
 volumes:
   twingate-config:
