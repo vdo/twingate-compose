@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  twingate:
+    build:
+      context: .
+    network_mode: "host"
+    command: sleep 365d
+    privileged: true
+    volumes:
+      - twingate-config:/etc/twingate
+      - ./service-key.json:/service-key.json:ro
+      - /var/run/dbus/system_bus_socket:/run/dbus/system_bus_socket  
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+volumes:
+  twingate-config:
